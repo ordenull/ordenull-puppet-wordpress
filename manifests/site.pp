@@ -94,7 +94,7 @@
 #    mysql_schema => 'company',
 #    owner        => 'copany',
 #    group        => 'copany',
-#    mode         => '660',
+#    mode         => '0660',
 #    hostname     => 'www.mycompany.com',
 #    home         => '/srv/company',
 #    git_repo     => 'ssh://git@github.com/username/my-company-repo.git',
@@ -224,26 +224,26 @@ define wordpress::site (
 
   file { $dir_manager:
     ensure => directory,
-    owner  => root,
-    group  => root,
-    mode   => 0750,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0750',
   }
 
   # Create WordPress management scripts
   file { "$dir_manager/config":
     ensure   => present,
     content  => template('wordpress/config.erb'),
-    owner    => root,
-    group    => root,
-    mode     => 0750,
+    owner    => 'root',
+    group    => 'root',
+    mode     => '0750',
     require  => File[$dir_manager],
   }
 
   file { "$dir_manager/tmp":
     ensure  => directory,
-    owner   => root,
-    group   => root,
-    mode    => 0750,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0750',
   }
 
   file { "$dir_manager/bin":
@@ -251,33 +251,33 @@ define wordpress::site (
     recurse => true,
     purge   => true,
     force   => true,
-    owner   => root,
-    group   => root,
-    mode    => 0750,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0750',
     source  => "puppet:///modules/wordpress/bin",
   }
 
   file { "$dir_manager/bin/init-salts":
     ensure  => present,
-    owner   => root,
-    group   => root,
-    mode    => 0750,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0750',
     source  => "puppet:///modules/wordpress/bin/init-salts",
   }
 
   file { "$dir_manager/bin/init-site":
     ensure  => present,
-    owner   => root,
-    group   => root,
-    mode    => 0750,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0750',
     source  => "puppet:///modules/wordpress/bin/init-site",
   }
 
   file { "$dir_manager/bin/init-database":
     ensure  => present,
-    mode    => 770,
-    owner   => root,
-    group   => root,
+    mode    => '0770',
+    owner   => 'root',
+    group   => 'root',
     content => template('wordpress/init-database.erb'),
   }
 

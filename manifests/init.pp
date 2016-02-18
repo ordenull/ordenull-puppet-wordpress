@@ -67,7 +67,7 @@ class wordpress (
   $mysql_pass          = undef,
   $owner               = $wordpress::params::owner,
   $group               = $wordpress::params::group,
-  $mode                = 0660,
+  $mode                = '0660',
   $admin_email         = undef,
   $admin_user          = 'admin',
   $admin_pass          = '',

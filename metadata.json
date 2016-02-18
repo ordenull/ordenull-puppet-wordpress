@@ -1,0 +1,14 @@
+{
+  "name": "ordenull-wordpress",
+  "version": "1.0.0",
+  "author": "ordenull",
+  "summary": "Installs and manages WordPress, including setup, generation of salts, and initial setup of a GIT repository",
+  "license": "Apache-2.0",
+  "source": "https://github.com/ordenull/ordenull-puppet-wordpress",
+  "project_page": "https://github.com/ordenull/ordenull-puppet-wordpress",
+  "issues_url": "https://github.com/ordenull/ordenull-puppet-wordpress/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
